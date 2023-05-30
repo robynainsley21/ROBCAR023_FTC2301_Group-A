@@ -3,31 +3,31 @@
 
 //LEOS VARIABLES
 /**
- * Leo's name
+ * Individual's name
  * @type {string} leoName
  */
 const leoName = 'Leo Musvaire'
 
 /**
- * Leo's house number
+ * Individual's house number
  * @type {string} leoNumber
  */
 const leoNumber = '2'
 
 /**
- * Leo's street name
+ * Individual's street name
  * @type {string} leoStreet
  */
 const leoStreet = 'Church St.'
 
 /**
- * Leo's postal code number
+ * Individual's postal code 
  * @type {string} leoPostal
  */
 const leoPostal = '3105'
 
 /**
- * Leo's account balance
+ * Individual's account balance
  * @type {string} leoBalance
  */
 const leoBalance = '-10'
@@ -35,37 +35,37 @@ const leoBalance = '-10'
 
 //SARAHS VARIABLES
 /**
- * Sarah's name
+ * Individual's name
  * @type {string} sarahName
  */
 const sarahName = 'Sarah    '
 
 /**
- * Sarah's surname
+ * Individual's surname
  * @type {string} sarahSurname
  */
 const sarahSurname = 'Kleinhans'
 
 /**
- * Sarah's account balance
+ * Individual's account balance
  * @type {string} sarahBalance
  */
 const sarahBalance = '-4582.21000111'
 
 /**
- * Sarah's house number
+ * Individual's house number
  * @type {string} sarahNumber
  */
 const sarahNumber = '13'
 
 /**
- * Sarah's street name
+ * Individual's street name
  * @type {string} sarahStreet
  */
 const sarahStreet = 'William Close'
 
 /**
- * Sarah's postal code
+ * Individual's postal code
  * @type {string} sarahPostal
  */
 const sarahPostal = '0310'
