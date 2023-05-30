@@ -1,0 +1,131 @@
+//@ts-check
+
+
+//LEOS VARIABLES
+/**
+ * Leo's name
+ * @type {string} leoName
+ */
+const leoName = 'Leo Musvaire'
+
+/**
+ * Leo's house number
+ * @type {string} leoNumber
+ */
+const leoNumber = '2'
+
+/**
+ * Leo's street name
+ * @type {string} leoStreet
+ */
+const leoStreet = 'Church St.'
+
+/**
+ * Leo's postal code number
+ * @type {string} leoPostal
+ */
+const leoPostal = '3105'
+
+/**
+ * Leo's account balance
+ * @type {string} leoBalance
+ */
+const leoBalance = '-10'
+
+
+//SARAHS VARIABLES
+/**
+ * Sarah's name
+ * @type {string} sarahName
+ */
+const sarahName = 'Sarah    '
+
+/**
+ * Sarah's surname
+ * @type {string} sarahSurname
+ */
+const sarahSurname = 'Kleinhans'
+
+/**
+ * Sarah's account balance
+ * @type {string} sarahBalance
+ */
+const sarahBalance = '-4582.21000111'
+
+/**
+ * Sarah's house number
+ * @type {string} sarahNumber
+ */
+const sarahNumber = '13'
+
+/**
+ * Sarah's street name
+ * @type {string} sarahStreet
+ */
+const sarahStreet = 'William Close'
+
+/**
+ * Sarah's postal code
+ * @type {string} sarahPostal
+ */
+const sarahPostal = '0310'
+
+
+
+/**
+ * @typedef {Object} leo - an object containing leo's details
+ * @property {string} name - a string property of the leo object
+ * @property {string} balance - a string property of the leo object
+ * @property {string} accessId - a string property of the leo object
+ * @property {number} age - a number property of the leo object
+ */
+
+const leo = {
+	name: leoName,
+	balance: "R" + (-parseFloat(leoBalance)).toFixed(2),
+	accessId: '47afb389-8014-4d0b-aff3-e40203d2107f',
+	age: 24,
+
+    /**
+     * @typedef {Object} leoAddress - an object for leo's address
+     * @property {string} number - a string property of the leoAdress object
+     * @property {string} street - a string property of the leoAdress object
+     * @property {string} postalCode - a string property of the leoAdress object
+     */
+	leoAddress : {
+		number: leoNumber,
+		street: leoStreet,
+		postalCode: leoPostal
+	}
+}
+
+
+/**
+ * @typedef {Object} sarah - an object containing sarah's details
+ * @property {string} name - a string property of the sarah object
+ * @property {number} age - a number property of the sarah object
+ * @property {string} accessId - a string property of the sarah object
+ * @property {string} balance - a string property of the sarah object
+ */
+
+const sarah = {
+	name: `${sarahName.trimEnd()} ${sarahSurname}`,
+	age: 62,
+	accessId: '6b279ae5-5657-4240-80e9-23f6b635f7a8',
+	balance: "R" + (-parseInt(sarahBalance)).toFixed(2),
+
+    /**
+     * @typedef {Object} sarahAddress - an object containing sarah's address
+     * @property {string} number - a string property of the sarahAdress object
+     * @property {string} street - a string property of the sarahAdress object
+     * @property {string} postalCode - a string property of the sarahAdress object
+     */
+	sarahAddress : {
+		number: sarahNumber,
+		street: sarahStreet,
+		postalCode: sarahPostal
+	}
+}
+
+console.log(leo, leo['address']['postalCode'])
+console.log(sarah, sarah['address']['postalCode'])
