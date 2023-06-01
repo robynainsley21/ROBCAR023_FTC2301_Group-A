@@ -21,5 +21,5 @@ form.addEventListener("submit", (event) => {
   } else {
     result.innerText = Math.floor(dividend / divider);
   };
-  
+
 }); 
