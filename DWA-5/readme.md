@@ -1,0 +1,39 @@
+# DWA5.3 Challenge 1
+
+## About
+Template code has been provided for a website called 'Whole Number Divider'. In Gherkin syntax, there are given user stories. Complete the unresolved scenarios to make the website fully functional.
+
+#
+
+## ✅ Resolved user stories
+
+1. Scenario: Starting program state
+
+- GIVEN that the submit button has not been pressed yet
+- AND the code has just loaded
+- THEN “NO calculation performed” should be displayed at the bottom
+
+2. Scenario: Dividing numbers result in a whole number
+
+- GIVEN that the submit button is pressed
+- WHEN 20 is entered into the first input
+- AND 10 is entered into the second input
+- THEN 2 should be displayed at the bottom
+
+#
+
+## ⭕ Unresolved user stories
+
+3. Scenario: Dividing numbers result in a decimal number
+
+- GIVEN that the submit button is pressed
+- WHEN 20 is entered into the first input
+- AND 3 is entered into the second input
+- THEN the number 6 with no decimal should be shown
+
+4. Scenario: Validation when values are missing
+
+- GIVEN that the submit button is pressed
+- WHEN either or both inputs are empty
+- THEN the divisions should not be done
+- AND the following should be displayed: “Division not performed. Both values are required in inputs. Try again”.
