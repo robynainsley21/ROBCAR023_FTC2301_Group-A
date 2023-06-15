@@ -214,7 +214,9 @@ domElements.search.dataSearchForm.addEventListener('submit', (event) => {
     /**
      * @type {HTMLFormElement} 
      */
+    //@ts-ignore
     const formData = new FormData(event.target);
+    //@ts-ignore
     const filters = Object.fromEntries(formData);
     const result = [];
 
@@ -249,7 +251,7 @@ domElements.search.dataSearchForm.addEventListener('submit', (event) => {
 
     for (const { author, id, image, title } of result.slice(0, BOOKS_PER_PAGE)) {
         const element = document.createElement('button');
-        
+        //@ts-ignore
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
@@ -276,7 +278,7 @@ domElements.list.dataListButton.addEventListener('click', () => {
 
     for (const { author, id, image, title } of matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE)) {
         const element = document.createElement('button');
-        
+        //@ts-ignore
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
