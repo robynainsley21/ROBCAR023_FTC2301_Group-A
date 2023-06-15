@@ -4,6 +4,7 @@
  * Notes by the author
  * - create default function for preview and use callback where needed
  * - further abstract with fragments?
+ * - when turning the preview function into a class, how to callback?
  */
 
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
@@ -19,6 +20,9 @@ let page = 1;
  * @type {Array}
  */
 let matches = books;
+
+//trying to get from an entire array of objects instead of one object in array
+const [ image, title, id, author ] = books;
 
 /**
  * All DOM elements
@@ -66,41 +70,66 @@ const domElements = {
         dataHeaderSettings : document.querySelector('[data-header-settings]'),
     }    
 }
+
+//original
 /**
- * Default html for preview
- * @param {string} picture
- * @param {string} heading
- * @param {Object} object
- * @param {string} property
- * @returns {string} 
- */
-const previewHtml = (picture, heading, object, property ) => {
-    return `
-    <img
-        class="preview__image"
-        src="${picture}"
-    />
+ * const previewHtml = (picture, heading, object, property) => {
+ *      return `
+ *          <img
+            class="preview__image"
+            src="${picture}"
+            />
             
-    <div class="preview__info">
-        <h3 class="preview__title">${heading}</h3>
-        <div class="preview__author">${object[property]}</div>
-    </div>
-    `
+            <div class="preview__info">
+                <h3 class="preview__title">${heading}</h3>
+                <div class="preview__author">${object[property]}</div>
+            </div>
+ *      `
+ * }
+ */
+
+//add entire function to class
+
+class Preview {
+    /**
+    * @param {string} picture
+    * @param {string} heading
+    * @param {string} object
+    * @param {string} property 
+    */
+    previewHtml = ( picture, heading, object, property ) => {
+        return `
+        <img
+            class="preview__image"
+            src="${picture}"
+        />
+                
+        <div class="preview__info">
+            <h3 class="preview__title">${heading}</h3>
+            <div class="preview__author">${object[property]}</div>
+        </div>
+        `        
+    }
 }
+
+const previewOutput = new Preview(image, title, authors, author );
+console.log(previewOutput)//retrieving from global
+
+//only getting one object?
+
 
 const starting = document.createDocumentFragment();
 
-for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
+for (const { image, title, id, author } of matches.slice(0, BOOKS_PER_PAGE)) {
     const element = document.createElement('button');
     //@ts-ignore
     element.classList = 'preview'; //initially returned 'cannot assign to 'classList' because it is a read-only property'; added ts-ignore
     element.setAttribute('data-preview', id);
 
-    element.innerHTML = previewHtml(image, title, authors, author);
+    element.innerHTML = previewOutput;
     
     starting.appendChild(element)
 }
-
 domElements.list.dataListItems.appendChild(starting);
 
 const genreHtml = document.createDocumentFragment()
@@ -144,7 +173,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 domElements.list.dataListButton.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
 
-domElements.list.dataListButton.disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0;
+domElements.list.dataListButton.disabled = (matches.length - (page * BOOKS_PER_PAGE)) < 0;
 
 domElements.list.dataListButton.innerHTML = `
     <span>Show more</span>
@@ -250,7 +279,7 @@ domElements.search.dataSearchForm.addEventListener('submit', (event) => {
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
-        element.innerHTML = previewHtml(image, title, authors, author);
+        element.innerHTML = previewHtml(previewOutput);
 
         newItems.appendChild(element);
     };
@@ -277,7 +306,7 @@ domElements.list.dataListButton.addEventListener('click', () => {
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
-        element.innerHTML = previewHtml(image, title, authors, author);
+        element.innerHTML = previewHtml(previewOutput);
 
         fragment.appendChild(element);
     };

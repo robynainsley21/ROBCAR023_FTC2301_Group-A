@@ -66,6 +66,7 @@ const domElements = {
         dataHeaderSettings : document.querySelector('[data-header-settings]'),
     }    
 }
+
 /**
  * Default html for preview
  * @param {string} picture
