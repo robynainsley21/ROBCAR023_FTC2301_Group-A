@@ -4,7 +4,6 @@
  * Notes by the author
  * - create default function for preview and use callback where needed
  * - further abstract with fragments?
- * - when turning the preview function into a class, how to callback?
  */
 
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
@@ -20,9 +19,6 @@ let page = 1;
  * @type {Array}
  */
 let matches = books;
-
-//trying to get from an entire array of objects instead of one object in array
-const [ image, title, id, author ] = books;
 
 /**
  * All DOM elements
@@ -71,52 +67,30 @@ const domElements = {
     }    
 }
 
-//original
-/**
- * const previewHtml = (picture, heading, object, property) => {
- *      return `
- *          <img
-            class="preview__image"
-            src="${picture}"
-            />
-            
-            <div class="preview__info">
-                <h3 class="preview__title">${heading}</h3>
-                <div class="preview__author">${object[property]}</div>
-            </div>
- *      `
- * }
- */
-
-//add entire function to class
-
-class Preview {
+class Preview {    
     /**
-    * @param {string} picture
-    * @param {string} heading
-    * @param {string} object
-    * @param {string} property 
+    * @param {string} image
+    * @param {string} title
+    * @param {object} authors
+    * @param {string} author 
+    * @returns {string}
     */
-    previewHtml = ( picture, heading, object, property ) => {
-        return `
-        <img
-            class="preview__image"
-            src="${picture}"
-        />
-                
-        <div class="preview__info">
-            <h3 class="preview__title">${heading}</h3>
-            <div class="preview__author">${object[property]}</div>
-        </div>
-        `        
-    }
+   previewHtml = ( image, title, authors, author  ) => {
+    return `
+    <img
+        class="preview__image"
+        src="${image}"
+    />
+            
+    <div class="preview__info">
+        <h3 class="preview__title">${title}</h3>
+        <div class="preview__author">${authors[author]}</div>
+    </div>
+    `        
+    }    
 }
 
-const previewOutput = new Preview(image, title, authors, author );
-console.log(previewOutput)//retrieving from global
-
-//only getting one object?
-
+const previewOutput = new Preview();
 
 const starting = document.createDocumentFragment();
 
@@ -126,7 +100,7 @@ for (const { image, title, id, author } of matches.slice(0, BOOKS_PER_PAGE)) {
     element.classList = 'preview'; //initially returned 'cannot assign to 'classList' because it is a read-only property'; added ts-ignore
     element.setAttribute('data-preview', id);
 
-    element.innerHTML = previewOutput;
+    element.innerHTML = previewOutput.previewHtml(image, title, authors, author);
     
     starting.appendChild(element)
 }
@@ -279,7 +253,7 @@ domElements.search.dataSearchForm.addEventListener('submit', (event) => {
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
-        element.innerHTML = previewHtml(previewOutput);
+        element.innerHTML = previewOutput.previewHtml(image, title, authors, author);
 
         newItems.appendChild(element);
     };
@@ -306,7 +280,7 @@ domElements.list.dataListButton.addEventListener('click', () => {
         element.classList = 'preview';
         element.setAttribute('data-preview', id);
     
-        element.innerHTML = previewHtml(previewOutput);
+        element.innerHTML = previewOutput.previewHtml(image, title, authors, author);
 
         fragment.appendChild(element);
     };
