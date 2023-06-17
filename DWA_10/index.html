@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Count</title>
+
+    <!-- STYLESHEETs -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <!-- JAVASCRIPT -->
+    <script src="scripts.js" defer type="module"></script>
+</head>
+<body>
+    <header>
+        <h1 class="header__title">Tally Count</h1>
+    </header>
+
+    <main class="counter">
+        <input class="counter__value" data-key="number" readonly value="0">
+        <div class="counter__actions">
+            <sl-button variant='neutral' size="large" class="counter__button counter__button_first" data-key="subtract">-</sl-button>
+            <sl-button variant="neutral" size="large" class="counter__button" data-key="add">+</sl-button>
+        </div>
+        <sl-button variant="neutral" class="reset" size="large" data-key="reset">Reset</sl-button>
+        <sl-dialog class='reset-overlay' data-key="reset-button">
+            <h3>The value has been reset to 0</h3>
+        </sl-dialog>
+    </main>
+
+    <footer>
+        Inspired by <a href="https://tallycount.app/">Tally Count</a>. Note that this is merely a student practice project for learning JavaScript
+    </footer>
+</body>
+</html>
