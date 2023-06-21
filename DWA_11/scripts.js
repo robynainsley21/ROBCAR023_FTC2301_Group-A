@@ -1,6 +1,6 @@
 
 /**
- * @type {HTMLElements}
+ * @type {object}
  */
 const domElements = {
     counter: document.querySelector('[data-key="number"]'),
@@ -21,25 +21,22 @@ const action = {
  * The value displayed on the counter to be incremented or decremented
  * @typedef {object}
  */
-const state = {
-    counterValue: domElements.counter.innerHTML,
-}
-
+const state = '';
 /**
  * Stores the state and any updates made to it
  * @typedef {object}
- * @returns
+ * @returns 
  */
 const createStore = (reducerFunction) => {
-    const state = state.counterValue;
+    let initialState = state;
 
     const getState = () => state; 
 
     const dispatch = (action) => {
-        reducerFunction(state, action);
+       initialState = reducerFunction(state, action.type);
     }
 
-    return {state, getState, dispatch}
+    return {initialState, getState, dispatch}
 }
 
 /**
@@ -49,7 +46,7 @@ const createStore = (reducerFunction) => {
  * @returns {state}
  */
 const reducer = (state, action) => {
-    switch (action) {
+    switch (action.type) {
         case 'INCREMENT': 
             return state + 1;
         case 'DECREMENT':
@@ -61,10 +58,11 @@ const reducer = (state, action) => {
     }
 }
 
+//Accessing store indirectly
 const store = createStore(reducer);
 
-domElements.decrement.addEventlistener('click', () => createStore.dispatch('DECREMENT'));
-domElements.increment.addEventlistener('click', () => createStore.dispatch('INCREMENT'));
-domElements.reset.addEventlistener('click', () => createStore.dispatch('RESET'));
+domElements.decrement.addEventListener('click', () => store.dispatch({ type: 'DECREMENT' }));
+domElements.increment.addEventListener('click', () => store.dispatch({ type: 'INCREMENT' }));
+domElements.reset.addEventListener('click', () => store.dispatch({ type: 'RESET' }));
 
 
