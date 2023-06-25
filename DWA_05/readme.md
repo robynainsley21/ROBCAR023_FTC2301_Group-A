@@ -1,6 +1,6 @@
-# DWA5 Throwing Errors
+# DWA5: Throwing Errors
 
-## About
+## About✏️
 Template code has been provided for a website called 'Whole Number Divider'. In Gherkin syntax, there are given user stories. Complete the unresolved scenarios to make the website fully functional.
 
 

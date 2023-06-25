@@ -1,4 +1,4 @@
-# DWA11 Functional Programming
+# DWA11: Functional Programming
 
 ## About 📃
 Create your own implementation of a Redux-inspired store to manage the state of a basic counting [Tally App](https://tallycount.app/). 

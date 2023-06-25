@@ -1,11 +1,9 @@
-# DWA6 Abstraction
+# DWA6: Abstraction
 
-## About
-
+## About✏️
 Starting with a working version of the 'Book Connect' website used in the IWA capstone, make the code more maintainable, extendable and easier to change by using objects and functions as abstractions.
 
-## Requirements
-
+## Requirements📃
 - Abstraction (in the form of functions and objects)
 - Documentation (JSDoc)
 - Approved styleguides

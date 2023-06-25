@@ -1,10 +1,10 @@
-# DWA3 Documentation
+# DWA3.1: Documentation
 
-## About 
+## About ✏️
 Solve the bugged code so that it logs the objects `leo` and `sarah` and their postal codes to the console.
 #
 
-## Requirements to solve challenge:
+## Requirements📃
 - Ensure that the syntax for the objects are correct
 - Do not change the values of the variables
 - Add a nested object to both the `leo` and  `sarah` objects that contains all address-specific information:
