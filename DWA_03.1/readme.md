@@ -1,4 +1,4 @@
-# DWA3.1
+# DWA3 Documentation
 
 ## About 
 Solve the bugged code so that it logs the objects `leo` and `sarah` and their postal codes to the console.

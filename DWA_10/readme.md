@@ -1,4 +1,4 @@
-# DWA10 Challenge 1: Rebuilding the Tally App Counter
+# DWA10 Polymorphism
 
 ## About 📝
 Rebuild the [Tally App Counter](https://tallycount.app/) in a brand new JavaScript file using only [Shoelace components](https://shoelace.style/). 
