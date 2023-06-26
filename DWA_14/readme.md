@@ -1,6 +1,6 @@
 # DWA 14 State Machines
 
-# About
+# About✏️
 
 Return to the [Tally App](https://tallycount.app/) example and recreate it entirely using the [Lit Framework](https://lit.dev/).
 
