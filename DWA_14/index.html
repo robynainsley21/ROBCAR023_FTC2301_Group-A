@@ -20,6 +20,10 @@
     <script type="module" defer src="scripts.js"></script>
 </head>
 <body>
-    
+    <div class="counter">Count: <span id="countValue"></span></div>
+    <div class="message"></div>
+    <sl-button class="button" @click=${add}>add</sl-button>
+    <sl-button class="button" @click=${minus}>Subtract</sl-button>
+    <sl-button class="button" @click=${reset}>Reset</sl-button>
 </body>
 </html>
