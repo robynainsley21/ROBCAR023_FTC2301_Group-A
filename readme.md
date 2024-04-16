@@ -1,4 +1,4 @@
-# Dynamic Web Apps (DWA Part1): Structuring JavaScript
+# JavaScript Basics
 
 # Learning Objectives📝
 
